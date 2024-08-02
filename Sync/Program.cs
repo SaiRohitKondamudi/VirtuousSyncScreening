@@ -43,7 +43,7 @@ namespace Sync
                             command.Parameters.AddWithValue("@Address", contact.Address);
                             command.Parameters.AddWithValue("@Email", contact.Email);
                             command.Parameters.AddWithValue("@Phone", contact.Phone);
-                            cmd.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
                         }
                     }
 

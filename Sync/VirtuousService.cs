@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System;
 using System.Threading.Tasks;
 
 namespace Sync
@@ -10,7 +11,7 @@ namespace Sync
     {
         private readonly RestClient _restClient;
 
-        public VirtuousService(IConfiguration configuration) 
+        public VirtuousService(IConfiguration configuration)
         {
             var apiBaseUrl = configuration.GetValue("VirtuousApiBaseUrl");
             var apiKey = configuration.GetValue("VirtuousApiKey");
@@ -30,9 +31,11 @@ namespace Sync
             request.AddQueryParameter("Take", take);
 
             var body = new ContactQueryRequest();
+
             request.AddJsonBody(body);
 
             var response = await _restClient.PostAsync<PagedResult<AbbreviatedContact>>(request);
+
             return response;
         }
     }

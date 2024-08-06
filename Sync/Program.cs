@@ -22,7 +22,7 @@ namespace Sync
             {
                 var hasMore = true;
                 con.Open();
-                string createTableCmd = Commands.CreateTableCommand;
+                string createTableCmd = Commands.CreateTableCommand.Trim();
                 var cmd = new SqlCommand(createTableCmd, con);
                 cmd.ExecuteNonQuery();
 
